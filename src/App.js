@@ -1,21 +1,19 @@
-import React, { Component } from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { Component } from "react";
+import logo from "./logo.svg";
+import "./App.css";
 
 class App extends Component {
   state = {
-    query: ''
-  }
+    query: "",
+  };
 
   updateQuery = (query) => {
     this.setState(() => ({
-      query: query
-    }))
-  }
+      query: query,
+    }));
+  };
 
   render() {
-    const { query } = this.state;
-
     return (
       <div className="App">
         <header className="App-header">
@@ -23,14 +21,14 @@ class App extends Component {
           <h1 className="App-title">ReactND - Coding Practice</h1>
         </header>
         <div className="container">
-          <input 
-			type="text" 
-			placeholder="Say Something" 
-			value={query}
-			onChange={(event) => this.updateQuery(event.target.value)}
-		  />
+          <input
+            type="text"
+            placeholder="Say Something"
+            value={this.state.query}
+            onChange={(evt) => this.updateQuery(evt.target.value)}
+          />
           <p className="echo">Echo:</p>
-          <p>{query}</p>
+          <p>{this.state.query}</p>
         </div>
       </div>
     );
